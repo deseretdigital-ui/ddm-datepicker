@@ -13,7 +13,7 @@ bower install --save git@github.com:deseretdigital-ui/ddm-datepicker.git#<commit
 
 ## Demo
 
-See [demo](http://deseretdigital-ui.github.io/ddm-datepicker/demo.html)
+See [demo](https://cdn.rawgit.com/deseretdigital-ui/ddm-datepicker/master/demo.html)
 
 
 ## Useage

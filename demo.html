@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DDM Datepicker Demo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="dist/ddm-datepicker.css">
+  <script type="text/javascript" src="dist/ddm-datepicker.js"></script>
+
+  <script>
+    $(document).ready(function(){
+
+      /* Initialize datepicker */
+      $("#datepicker").datepick({
+        monthsToShow: 2,
+        changeMonth: false,
+        multiSelect: 999,
+        minDate:'d',
+        maxDate: "+1m +1w",
+        monthsOffset: 0,
+        altField: '.altField',
+        defaultDate: '+1d',
+        selectDefaultDate: true,
+        onSelect: function(){
+          $('.alt-field').html($('.altField').val());
+        }
+      });
+
+      /* Hide datepicker window */
+
+      var showDatepickerElem = $('.choose-dates-button');
+
+      var hideDatepickerElem = $('.datepicker-wrapper .icon-close, .datepicker-wrapper .datepicker-button');
+
+      function hideDatepicker() {
+        $('.datepicker-wrapper').slideUp();
+        return false;
+      }
+
+      function showDatepicker() {
+        $('.datepicker-wrapper').slideToggle();;
+        return false;
+      }
+
+      $(showDatepickerElem).on('click',function(){
+        showDatepicker();
+      });
+
+      $(hideDatepickerElem).on('click',function(){
+        hideDatepicker();
+      });
+
+    })
+  </script>
+</head>
+<body>
+  <p>+ Easy to style</p>
+  <p>+ Supports multiple dates</p>
+  <p>+ Supports date range</p>
+  <p>+ Has big documentation (<a href="http://keith-wood.name/datepick.html">http://keith-wood.name/datepick.html</a>)</p>
+  <p>+ Find out how to make it responsive only with styles (wow!!!!)</p>
+  <h3>Please press 'Choose dates' button to expand the calendar modal. Please resize browser window to see how it changes. Pressing te close button hides the calendar modal.</h3>
+  <input type="text" class="altField">
+  <a href="#" class="choose-dates-button">Choose Dates</a>
+  <span class="alt-field"></span>
+  <div class="datepicker-wrapper">
+    <a href="#" class="icon-close"></a>
+    <div id="datepicker"></div>
+    <ul class="color-sceme">
+      <li><span class="current-date">Current <br>Date</span></li>
+      <li><span class="available-date">Available <br>Date</span></li>
+      <li><span class="selected-date">Selected <br>Date</span></li>
+      <li><span class="not-available-date">Not <br>Available</span></li>
+    </ul>
+    <button type="submit" class="datepicker-button">Submit</button>
+  </div>
+</body>
+</html>
